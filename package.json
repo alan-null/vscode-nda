@@ -1,0 +1,73 @@
+{
+  "name": "nda",
+  "displayName": "NDA — No Docs Allowed",
+  "description": "Toggle visibility of /// XML documentation comments in C# files",
+  "version": "1.0.0",
+  "publisher": "alan-null",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "icon": "assets/logo.png",
+  "categories": ["Other"],
+  "keywords": ["Comments"],
+  "activationEvents": ["onLanguage:csharp", "onCommand:nda.toggle"],
+  "main": "./out/extension.js",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/alan-null/vscode-nda"
+    },
+  "contributes": {
+    "commands": [
+      {
+        "command": "nda.toggle",
+        "title": "Toggle XML Doc Comments",
+        "category": "NDA"
+      },
+      {
+        "command": "nda.hide",
+        "title": "Hide XML Doc Comments",
+        "category": "NDA"
+      },
+      {
+        "command": "nda.show",
+        "title": "Show XML Doc Comments",
+        "category": "NDA"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "nda.toggle",
+        "key": "ctrl+shift+/",
+        "mac": "cmd+shift+/"
+      }
+    ],
+    "configuration": {
+      "title": "NDA",
+      "properties": {
+        "nda.hideOnOpen": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically hide XML doc comments when a C# file is opened"
+        },
+        "nda.opacity": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Opacity of hidden comments (0 = fully invisible, 0.2 = faint, 1 = fully visible)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "vscode:prepublish": "npm run compile",
+    "watch": "tsc -p ./ --watch",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
