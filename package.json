@@ -2,7 +2,7 @@
   "name": "nda",
   "displayName": "NDA — No Docs Allowed",
   "description": "Toggle visibility of /// XML documentation comments in C# files",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "publisher": "alan-null",
   "engines": {
     "vscode": "^1.75.0"
